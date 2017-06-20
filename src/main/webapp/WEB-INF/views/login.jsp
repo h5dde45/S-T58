@@ -13,14 +13,16 @@
     <fieldset class="boxBody">
         <form:label path="username">username</form:label>
         <form:input path="username"/>
-
+        <form:errors path="username" cssClass="error"/>
 
         <form:label path="password">password</form:label>
         <form:input path="password"/>
+        <form:errors path="password" cssClass="error"/>
 
     </fieldset>
     <footer>
-        <label><input type="checkbox" tabindex="3">Keep me logged in</label>
+        <form:label path="admin">admin</form:label>
+        <form:checkbox path="admin"/>
         <input type="submit" class="btnLogin" value="Login" tabindex="4">
     </footer>
 </form:form>
