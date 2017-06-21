@@ -4,10 +4,10 @@ import javax.validation.constraints.Size;
 
 public class User {
 
-    @Size(min = 6,message = "Имя больше 6 знаков")
+    @Size(min = 6,message = "{name.size.error}")
     private String username;
 
-    @Size(min = 5,max = 10,message = "Пароль от 5 до 10 знаков")
+    @Size(min = 5,max = 10,message = "{password.size.error}")
     private String password;
 
     private Boolean admin;

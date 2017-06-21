@@ -1,5 +1,7 @@
 package ru.mvc.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -10,14 +12,20 @@ import org.springframework.web.servlet.ModelAndView;
 import ru.mvc.objects.User;
 
 import javax.validation.Valid;
+import java.util.Locale;
 
 @Controller
 public class LoginController {
 
+    @Autowired
+    private MessageSource messageSource;
+
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public ModelAndView main() {
+    public ModelAndView main(@ModelAttribute User user, Locale locale) {
+
+        user.setUsername("UserNameValue");
         return new ModelAndView("login",
-                "user", new User());
+                "user",user);
     }
 
     @RequestMapping(value = "/checkUser",method = RequestMethod.POST)
@@ -26,7 +34,6 @@ public class LoginController {
         if (bindingResult.hasErrors()){
             return "login";
         }
-        model.addAttribute("user",user);
 
         return "main";
     }

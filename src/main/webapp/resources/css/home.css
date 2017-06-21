@@ -133,7 +133,7 @@ body{
 }
 .box.login
 {
-  height:260px;
+  /*height:272px;*/
   width:332px;
   position:absolute;
   left:50%;
